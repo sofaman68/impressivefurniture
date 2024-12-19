@@ -3,12 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressive Furniture</title>
-</head>
+    <title>Impressive Furniture Design</title>
+    <link rel="stylesheet" href="src/styles.css">
+    <link rel="icon" href="src/logo.ico" type="image/x-icon">
+    <link href="https://fonts.cdnfonts.com/css/inter" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
 <body>
-    <div class="coming-soon">
-        <h1>Impressive Furniture</h1>
-        <p>Coming Soon</p>
-    </div>
+    <header>
+        <nav id="navbar">
+            <div class="stacked">
+                <img src="src/logo2.png" alt="Impressive Furniture Design Logo">
+            </div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#about">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="landing">
+        <div class="landing-content">
+            <h1>Impressive Furniture Design</h1>
+            <h3>Custom Made / Re-Upholstering Company</h3>
+            <div class="buttons">
+                <a href="#gallery" class="btn"><i class="fa-solid fa-images"></i> &nbsp;View Gallery</a>
+                <a href="#about" class="btn btn-secondary"><i class="fa-solid fa-envelope"></i> &nbsp;Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="products">
+        <h2>Our Products</h2>
+        <p>Discover a range of premium furniture for every style.</p>
+    </section>
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <p>Explore our curated furniture sets for your home or office.</p>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We are a funiture manufacturing company, specializing in custom furniture and re-upholstery. In other words, furniture made to your specifications. We have assisted thousands of clients in meeting all of their furniture needs for over 30 year.</p>
+    </section>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
