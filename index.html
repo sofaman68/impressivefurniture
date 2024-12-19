@@ -15,15 +15,18 @@
                 <img src="src/logo2.png" alt="Impressive Furniture Design Logo">
             </div>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#products">Products</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#about">About Us</a></li>
             </ul>
         </nav>
+        <nav id="mobile-navbar">
+            <div class="stacked">
+                <img src="src/logo2.png" alt="Impressive Furniture Design Logo">
+            </div>
+        </nav>
     </header>
 
-    <section id="landing">
+    <section class="landing">
         <div class="landing-content">
             <h1>Impressive Furniture Design</h1>
             <h3>Custom Made / Re-Upholstering Company</h3>
@@ -34,22 +37,89 @@
         </div>
     </section>
 
-    <section id="products">
-        <h2>Our Products</h2>
-        <p>Discover a range of premium furniture for every style.</p>
-    </section>
+
 
     <section id="gallery">
         <h2>Gallery</h2>
         <p>Explore our curated furniture sets for your home or office.</p>
+        <div class="carousel">
+            <div class="carousel-images">
+                <div><img src="src/img1.jpg" alt="Furniture Set 1"></div>
+                <div><img src="src/img2.jpg" alt="Furniture Set 2"></div>
+                <div><img src="src/img3.jpg" alt="Furniture Set 3"></div>
+                <div><img src="src/img4.jpg" alt="Furniture Set 4"></div>
+                <div><img src="src/img5.jpg" alt="Furniture Set 5"></div>
+                <div><img src="src/img6.jpg" alt="Furniture Set 6"></div>
+            </div>
+            <button class="carousel-button prev"><i class="fas fa-arrow-left"></i></button>
+            <button class="carousel-button next"><i class="fas fa-arrow-right"></i></button>
+            <div class="carousel-indicators">
+                <span data-slide="0" class="active"></span>
+                <span data-slide="1"></span>
+                <span data-slide="2"></span>
+                <span data-slide="3"></span>
+                <span data-slide="4"></span>
+                <span data-slide="5"></span>
+            </div>
+        </div>
     </section>
 
     <section id="about">
         <h2>About Us</h2>
-        <p>We are a funiture manufacturing company, specializing in custom furniture and re-upholstery. In other words, furniture made to your specifications. We have assisted thousands of clients in meeting all of their furniture needs for over 30 year.</p>
+        <div class="inner">
+            <div class="about-left">
+                <p>We are a funiture manufacturing company, specializing in custom furniture and re-upholstery. In other words, furniture made to your specifications. We have assisted thousands of clients in meeting all of their furniture needs for over 30 years.</p>
+                <div class="contact-row">
+                    <div class="contact-section">
+                        <div class="contact-section-title">
+                            <i class="fa-solid fa-envelope"></i>
+                            <h3>Contact Us</h3>
+                        </div>
+                        <p>Send us an email with your inquiries or questions.</p>
+                        <a href="mailto:impressivefurnituredesign@gmail.com?subject=[Customer%20Inquiry] Impressive%20Furniture%20Design"><button>Send Email</button></a>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">
+                            <i class="fa-solid fa-location-dot"></i>                            
+                            <h3>Visit Us</h3>
+                        </div>
+                        <p>
+                            1170 Sheppard Ave. West
+                            <br>Unit 12, Downsview, ON M3K 2A3
+                        </p>
+                        <a href="https://maps.app.goo.gl/LgGksUPYhE8qRBNDA"><button>Google Maps</button></a>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">
+                            <i class="fa-solid fa-phone"></i>
+                            <h3>Phone Us</h3>
+                        </div>
+                        <a href="tel:+14166338947" class="phone"> (416) 633-6426</a>
+                    </div>
+                </div>
+            </div>
+            <div class="about-right">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2881.819014035466!2d-79.47211089999999!3d43.755855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b31f88913e61f%3A0xaf4d727f796cd596!2sImpressive%20Furniture%20Design!5e0!3m2!1sen!2sca!4v1734645491459!5m2!1sen!2sca" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
     </section>
+    <div class="up-btn" id="up-button">
+        <button><i class="fas fa-chevron-up"></i></button>
+    </div>
+    <footer>
+        <img src="src/logo2.png"/>
+        <p>&copy; 2024 Impressive Furniture Design. All rights reserved.</p>
+    </footer>
 
+    <script src="src/carousel.js"></script>
     <script>
+        document.getElementById('up-button').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -62,10 +132,17 @@
 
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
+            const mobileNavbar = document.getElementById('mobile-navbar');
+            const upButton = document.getElementById('up-button');
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
+                console.log(mobileNavbar);
+                mobileNavbar.classList.add('scrolled');
+                upButton.classList.add('show');
             } else {
                 navbar.classList.remove('scrolled');
+                mobileNavbar.classList.remove('scrolled');
+                upButton.classList.remove('show');
             }
         });
     </script>
