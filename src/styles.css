@@ -266,14 +266,14 @@ footer p {
 
 .carousel {
     position: relative;
-    width: 100%;
-    max-width: 800px; /* Limit the maximum width of the carousel */
-    height: 400px; /* Set a fixed height for the carousel */
+    width: 100%; /* Ensure carousel spans the full width of the screen */
+    max-width: 800px; /* Limit the maximum width for larger screens */
+    height: 400px; /* Default height for the carousel */
     margin: auto;
-    overflow: hidden;
+    overflow: hidden; /* Prevent content from overflowing the carousel */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: #f4f4f4; /* Background color for whitespace */
+    background-color: #f4f4f4;
 }
 
 .carousel-images {
@@ -282,23 +282,23 @@ footer p {
     height: 100%; /* Match the carousel's height */
 }
 
-.carousel-images img {
-    width: auto; /* Maintain the image's aspect ratio */
-    height: 100%; /* Scale the image to fit the carousel's height */
-    margin: auto; /* Center the image within the slide */
-    flex-shrink: 0;
-    object-fit: contain; /* Ensure the image doesn't stretch */
-    background-color: white; /* Optional: Add background to images for visibility */
-}
-
 .carousel-images > div {
-    flex: 0 0 100%; /* Each slide takes 100% of the carousel width */
+    flex: 0 0 100%; /* Each slide takes up 100% of the carousel width */
     display: flex;
     justify-content: center; /* Center image horizontally */
     align-items: center; /* Center image vertically */
-    text-align: center; /* For alignment */
+    text-align: center;
     position: relative;
-    background: #f4f4f4; /* Ensure whitespace appears beside smaller images */
+    height: 100%;
+    background-color: #f4f4f4; /* Background color for whitespace around images */
+}
+
+.carousel-images img {
+    max-width: 100%; /* Ensure the image fits within the slide width */
+    max-height: 100%; /* Ensure the image fits within the slide height */
+    object-fit: contain; /* Maintain aspect ratio with whitespace if needed */
+    margin: auto; /* Center the image within the slide */
+    display: block;
 }
 
 .carousel-button {
@@ -309,7 +309,6 @@ footer p {
     color: white;
     border: none;
     padding: 10px;
-    width: 40px;
     cursor: pointer;
     font-size: 18px;
     border-radius: 50%;
